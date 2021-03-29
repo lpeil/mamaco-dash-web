@@ -1,8 +1,9 @@
+import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import { isAuthenticated } from '../auth'
+import { isAuthenticated } from '@/auth'
 
-import LoginPage from '../pages/auth/login'
-import HomePage from '../pages/home'
+import LoginPage from '@/pages/auth/login'
+import HomePage from '@/pages/home'
 
 const Routes = () => (
   <BrowserRouter>

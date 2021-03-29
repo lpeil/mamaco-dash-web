@@ -1,3 +1,4 @@
+import React from 'react'
 import { Grid, Card, Button } from '@material-ui/core'
 
 const LoginPage = () => (
