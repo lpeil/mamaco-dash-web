@@ -1,18 +1,27 @@
-import React from 'react'
-import { Grid, Card, Button } from '@material-ui/core'
+import React from 'react';
+import { Grid, Button, Card } from '@material-ui/core';
+import useStyles from './styles';
 
 const LoginPage = () => {
+  const classes = useStyles();
   const discordLogin = () => {
-    window.location.href = process.env.DISCORD_LOGIN
-  }
+    window.location.href = process.env.DISCORD_LOGIN;
+  };
 
   return (
-    <Grid container justify="center" alignItems="center" style={{ height: '100vh' }}>
-      <Card style={{ padding: '10px' }}>
-        <Button onClick={discordLogin} color="primary">Login with Discord</Button>
-      </Card>
+    <Grid className={classes.gridContainer} container>
+      <Grid item xs={3} className={classes.gridCardImage} />
+      <Grid item xs={9} className={classes.gridCardLogin}>
+        <Grid container justify="center">
+          <Card>
+            <Button onClick={discordLogin} color="primary">
+              Login with Discord
+            </Button>
+          </Card>
+        </Grid>
+      </Grid>
     </Grid>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
