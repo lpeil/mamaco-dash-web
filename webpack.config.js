@@ -1,24 +1,24 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { HotModuleReplacementPlugin } = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { HotModuleReplacementPlugin } = require('webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const Dotenv = require('dotenv-webpack')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.js'),
-  
+
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/',
   },
 
   resolve: {
     alias: {
       '~': path.resolve(__dirname),
-      '@': path.resolve(__dirname, 'src')
-    }
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
 
   module: {
@@ -63,13 +63,13 @@ module.exports = {
       systemvars: true,
     }),
   ],
-  
+
   devServer: {
     historyApiFallback: true,
     contentBase: path.resolve(__dirname, 'dist'),
     hot: true,
-    port: 3000,
+    port: 3030,
   },
 
   mode: 'development',
-};
+}

@@ -4,7 +4,8 @@ import {
 } from 'react-router-dom'
 import { isAuthenticated } from '@/auth'
 
-import LoginPage from '@/pages/auth/login'
+import LoginPage from '@/pages/login'
+import LoginReturnPage from '@/pages/login/return'
 import HomePage from '@/pages/home'
 
 const Routes = () => (
@@ -12,6 +13,7 @@ const Routes = () => (
     <Switch>
       <PrivateRoute path="/" exact component={HomePage} />
       <Route path="/login" exact component={LoginPage} />
+      <Route path="/login/return" exact component={LoginReturnPage} />
     </Switch>
   </BrowserRouter>
 )
