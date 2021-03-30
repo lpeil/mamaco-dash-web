@@ -13,11 +13,18 @@ const LoginPage = () => {
       <Grid item xs={3} className={classes.gridCardImage} />
       <Grid item xs={9} className={classes.gridCardLogin}>
         <Grid container justify="center">
-          <Card>
-            <Button onClick={discordLogin} color="primary">
-              Login with Discord
-            </Button>
-          </Card>
+          <Grid item xs={10}>
+            <Grid container justify="center">
+              <Grid item xs={12} className={classes.discordLogo} />
+              <Grid item xs={2}>
+                <Card className={classes.gridCardLogin}>
+                  <Button fullWidth onClick={discordLogin} color="primary">
+                    Login with Discord
+                  </Button>
+                </Card>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
