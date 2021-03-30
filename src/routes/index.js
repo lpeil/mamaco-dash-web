@@ -1,5 +1,7 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import {
+  BrowserRouter, Switch, Route, Redirect,
+} from 'react-router-dom'
 import { isAuthenticated } from '@/auth'
 
 import LoginPage from '@/pages/auth/login'
@@ -15,16 +17,16 @@ const Routes = () => (
 )
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route 
-    {...rest} 
+  <Route
+    {...rest}
     component={
       isAuthenticated ? Component : MyRedirect
-    } 
+    }
   />
 )
 
-const MyRedirect = (props) => (
-  <Redirect to={{ pathname: '/login', state: { from: props.location }}} />
+const MyRedirect = ({ location }) => (
+  <Redirect to={{ pathname: '/login', state: { from: location } }} />
 )
 
-export default Routes;
+export default Routes
