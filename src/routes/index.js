@@ -1,12 +1,11 @@
-import React from 'react'
-import {
-  BrowserRouter, Switch, Route, Redirect,
-} from 'react-router-dom'
-import { isAuthenticated } from '@/auth'
+/* eslint react/prop-types: 0 */
+import React from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { isAuthenticated } from '@/auth';
 
-import LoginPage from '@/pages/login'
-import LoginReturnPage from '@/pages/login/return'
-import HomePage from '@/pages/home'
+import LoginPage from '@/pages/login';
+import LoginReturnPage from '@/pages/login/return';
+import HomePage from '@/pages/home';
 
 const Routes = () => (
   <BrowserRouter>
@@ -16,19 +15,15 @@ const Routes = () => (
       <Route path="/login/return" exact component={LoginReturnPage} />
     </Switch>
   </BrowserRouter>
-)
-
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    component={
-      isAuthenticated ? Component : MyRedirect
-    }
-  />
-)
+);
 
 const MyRedirect = ({ location }) => (
   <Redirect to={{ pathname: '/login', state: { from: location } }} />
-)
+);
 
-export default Routes
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  <Route {...rest} component={isAuthenticated ? Component : MyRedirect} />
+);
+
+export default Routes;
